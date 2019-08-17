@@ -143,7 +143,8 @@ function () {
 
     this.bindEvents = function (fragment) {
       var eventsMap = _this.eventsMap;
-      Object.keys(eventsMap).forEach(function (eventKey) {
+
+      var _loop_1 = function _loop_1(eventKey) {
         var _a = eventKey.split(':'),
             eventName = _a[0],
             selector = _a[1];
@@ -151,7 +152,11 @@ function () {
         fragment.querySelectorAll(selector).forEach(function (element) {
           element.addEventListener(eventName, eventsMap[eventKey]);
         });
-      });
+      };
+
+      for (var eventKey in eventsMap) {
+        _loop_1(eventKey);
+      }
     };
 
     this.template = function () {
