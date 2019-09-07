@@ -120,8 +120,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"src/views/CollectionView.ts":[function(require,module,exports) {
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -139,13 +137,11 @@ function () {
       _this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
 
-      for (var model in _this.collection.models) {
+      for (var _i = 0, _a = _this.collection.models; _i < _a.length; _i++) {
+        var model = _a[_i];
         var itemParent = document.createElement('div');
 
-        if (_typeof(model) === 'object') {
-          _this.renderItem(model, itemParent);
-        } // this.renderItem(model, itemParent);
-
+        _this.renderItem(model, itemParent);
 
         templateElement.content.append(itemParent);
       }

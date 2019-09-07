@@ -8,12 +8,9 @@ export abstract class CollectionView<T, K> {
   render = (): void => {
     this.parent.innerHTML = '';
     const templateElement = document.createElement('template');
-    for (let model in this.collection.models) {
+    for (let model of this.collection.models) {
       const itemParent = document.createElement('div');
-      if (typeof model === 'object') {
-        this.renderItem(model, itemParent);
-      }
-      // this.renderItem(model, itemParent);
+      this.renderItem(model, itemParent);
       templateElement.content.append(itemParent);
     }
     this.parent.append(templateElement.content);
